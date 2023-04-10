@@ -1,5 +1,27 @@
 // complete this js code
-function Person(name, age) {}
+//function Person(name, age) {}
+class Person {
+	constructor(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	get name(){
+		return this.name;
+	}
+	set age(age){
+		this.age = age;
+	}
+}
+class Student extends Person{
+	study(){
+		console.log(`${this.name} is studying`);
+	}
+}
+class Teacher extends Person{
+	teach(){
+		console.log(`${this.name} is teaching`);
+	}
+}
 
 function Employee(name, age, jobTitle) {}
 
