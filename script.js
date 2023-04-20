@@ -1,29 +1,24 @@
 // complete this js code
-//function Person(name, age) {}
-class Person {
-	constructor(name,age){
-		this.name = name;
-		this.age = age;
-	}
-	get name(){
-		return this.name;
-	}
-	set age(age){
-		this.age = age;
-	}
+function Person(name, age) {
+	this.name=name;
+	this.age=age;
 }
-class Student extends Person{
-	study(){
-		console.log(`${this.name} is studying`);
-	}
-}
-class Teacher extends Person{
-	teach(){
-		console.log(`${this.name} is teaching`);
-	}
-}
+Person.prototype.greet=function(){
+	console.log(~Hello, my name is ${this.name}and I am ${this.age}years old.~);
+};
 
-function Employee(name, age, jobTitle) {}
+
+function Employee(name, age, jobTitle) {
+	Person.call(this,name,age);
+	this.jobTitle=jobTitle;
+}
+Employee.prototype=Object.create(Person.prototype);
+Employee.prototype.constructor=Employee;
+
+Employee.prototype.jobGreat = function(){
+	console.log(~Hello,my name is ${this.name},I am ${this.age} years old,and my job is ${this.jobTit}.~);
+
+};
 
 // Do not change code below this line
 window.Person = Person;
